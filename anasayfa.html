@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oyun Perisi</title>
+    <link rel="stylesheet" href="styless.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .game-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .game {
+            background-color: white;
+            border-radius: 10px;
+            width: 30%;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            height: 350px;
+        }
+        .game img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .game-description {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .game:hover .game-description {
+            opacity: 1;
+        }
+        .game-description h3 {
+            margin: 10px 0;
+            font-size: 20px;
+        }
+        .game-description button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .game-description button:hover {
+            background-color: #e5533f;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        /* Kullanım Şartları Stili */
+        #terms-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .terms-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+            color: #333;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        .terms-content h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+        .terms-content p {
+            text-align: left;
+            font-size: 14px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .terms-buttons button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #ff6347;
+            color: white;
+        }
+        .terms-buttons button:hover {
+            background-color: #e5533f;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Oyun Perisi</h1>
+</header>
+<nav>
+
+<!-- Hamburger Menü Butonu -->
+<div id="menu-btn" class="menu-btn">
+    &#9776; <!-- 3 çizgi simgesi -->
+</div>
+
+<!-- Menü içeriği -->
+<div id="menu-content" class="menu-content">
+    <ul>
+        <li><a href="#hakkimizda">Hakkımızda</a></li>
+        <li><a href="#sosyal-medya">Sosyal Medya Hesaplarımız</a></li>
+        <li><a href="#guncellemeler">Güncellemeler</a></li>
+        <li><a href="#gizlilik-politikasi">Gizlilik Politikası</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
+    </ul>
+</div>
+
+
+
+    <a href="#">Anasayfa</a>
+    <a href="#">Oyunlar</a>
+    <a href="#">İletişim</a>
+    <a href="adminLogin.html" class="admin-button">Admin Panel</a>
+</nav>
+
+<div class="game-container">
+    <div class="game">
+        <img src="fotoğraflar/moto-x3m-pool-party.jpg" alt="Moto X3M Pool Party">
+        <div class="game-description">
+            <h3>Moto X3M Pool Party</h3>
+            <p>Yaz Ayında Havalı bir şekilde Motor Sürmek mi? O zaman doğru yerdesin!</p>
+            <button onclick="window.location.href='oyun.html'">Oyunu Oyna</button>
+        </div>
+    </div>
+    <div class="game">
+        <img src="fotoğraflar/atesvesu.jpg" alt="Ateş ve Su 1">
+        <div class="game-description">
+            <h3>Ateş ve Su 1</h3>
+            <p>Arkadaşlarınla biraz nostalji ve biraz eğlence.</p>
+            <button onclick="window.location.href='atesvesu.html'">Oyunu Oyna</button>
+        </div>
+    </div>
+    <div class="game">
+        <img src="fotoğraflar/oyun3.jpg" alt="Oyun 3">
+        <div class="game-description">
+            <h3>Oyun 3</h3>
+            <p>Gerçekçi savaş deneyimi sunar!</p>
+            <button onclick="window.location.href='#'">Oyunu Oyna</button>
+        </div>
+    </div>
+</div>
+
+<div id="terms-popup">
+    <div class="terms-content">
+        <h2>Kullanım Şartları ve Gizlilik Politikası</h2>
+        <p>
+            Oyun Perisi web sitesine giriş yaparak bu Kullanım Şartları ve Gizlilik Politikası'nı kabul etmiş sayılırsınız.
+            Eğer bu şartları kabul etmiyorsanız, siteyi kullanmayı hemen bırakmalısınız.
+        </p>
+        <div class="terms-buttons">
+            <button id="accept-terms">Evet, Kabul Ediyorum</button>
+            <button id="decline-terms">Hayır, Siteyi Kapat</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Oyun Perisi | Tüm Hakları Saklıdır</p>
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const termsPopup = document.getElementById("terms-popup");
+        const acceptButton = document.getElementById("accept-terms");
+        const declineButton = document.getElementById("decline-terms");
+
+        acceptButton.addEventListener("click", function() {
+            termsPopup.style.display = "none";
+        });
+
+        declineButton.addEventListener("click", function() {
+            alert("Kuralları kabul etmeden siteye giriş yapamazsınız!");
+            window.location.href = "https://google.com";
+        });
+    });
+</script>
+</body>
+</html>

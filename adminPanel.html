@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Paneli</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            margin: 20px;
+        }
+        .comment {
+            background-color: white;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #c0392b;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gelişmiş Admin Panel</h1>
+        <button onclick="logout()">Çıkış Yap</button>
+        <h2>Yorumlar</h2>
+        <div id="commentsList"></div>
+    </div>
+
+    <script>
+
+        // Yorumları görüntüle
+function displayComments() {
+    const commentsList = document.getElementById('commentsList');
+    const comments = JSON.parse(localStorage.getItem('comments')) || [];
+    commentsList.innerHTML = ""; // Önceki yorumları temizle
+
+    comments.forEach((commentData, index) => {
+        fetch('get_ip.php') // IP'yi almak için PHP dosyasına istek gönder
+            .then(response => response.json())
+            .then(data => {
+                const commentElement = document.createElement('div');
+                commentElement.classList.add('comment');
+                commentElement.innerHTML = `
+                    <strong>IP Adresi:</strong> ${data.ip} <br>
+                    <strong>Yorum:</strong> ${commentData.text} <br>
+                    <strong>Puan:</strong> &#9733;`.repeat(commentData.rating) + `
+                    <br>
+                    <button onclick="deleteComment(${index})">Sil</button>
+                `;
+                commentsList.appendChild(commentElement);
+            })
+            .catch(error => {
+                console.error('IP alınırken hata oluştu:', error);
+            });
+    });
+}
+
+
+        // Admin kontrolü
+        if (localStorage.getItem('isAdmin') !== 'true') {
+            alert('Admin girişi yapılmamış!');
+            window.location.href = 'adminLogin.html';  // Admin giriş sayfasına yönlendir
+        }
+
+        // Yorumları görüntüle
+        function displayComments() {
+            const commentsList = document.getElementById('commentsList');
+            const comments = JSON.parse(localStorage.getItem('comments')) || [];
+            commentsList.innerHTML = "";  // Önceki yorumları temizle
+
+            comments.forEach((commentData, index) => {
+                const commentElement = document.createElement('div');
+                commentElement.classList.add('comment');
+                commentElement.innerHTML = `
+                    <strong>Yorum:</strong> ${commentData.text} <br>
+                    <strong>Puan:</strong> &#9733;`.repeat(commentData.rating) + `
+                    <br>
+                    <button onclick="deleteComment(${index})">Sil</button>
+                `;
+                commentsList.appendChild(commentElement);
+            });
+        }
+
+        // Yorum silme işlemi
+        function deleteComment(index) {
+            let comments = JSON.parse(localStorage.getItem('comments')) || [];
+            comments.splice(index, 1);  // Yorum sil
+            localStorage.setItem('comments', JSON.stringify(comments));
+            displayComments();  // Yorumları güncelle
+        }
+
+        // Admin çıkışı
+        function logout() {
+            localStorage.removeItem('isAdmin');  // Admin çıkışı yap
+            window.location.href = 'adminLogin.html';  // Admin giriş sayfasına yönlendir
+        }
+
+        // Sayfa yüklendiğinde yorumları listele
+        window.onload = function() {
+            displayComments();
+        };
+    </script>
+</body>
+</html>
