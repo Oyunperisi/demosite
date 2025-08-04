@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RP Sunucu Launcher</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <i class="fas fa-cube"></i>
+            <span>RP Launcher</span>
+        </div>
+        <div class="discord-link">
+            <a href="#" target="_blank" id="discordLink">
+                <i class="fab fa-discord"></i>
+                Discord
+            </a>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="launcher-container">
+            <h1>Sunucuya Katıl</h1>
+            
+            <form class="launcher-form" id="launcherForm">
+                <div class="form-group">
+                    <label for="username">Kullanıcı Adı:</label>
+                    <input type="text" id="username" name="username" required placeholder="Minecraft kullanıcı adınızı girin">
+                </div>
+
+                <div class="form-group">
+                    <label for="character">Karakter Seçin:</label>
+                    <select id="character" name="character" required>
+                        <option value="">Bir karakter seçin...</option>
+                        <option value="vatandas">👤 Vatandaş</option>
+                        <option value="polis">👮 Polis</option>
+                        <option value="mafya">🕴️ Mafya</option>
+                        <option value="doktor">👨‍⚕️ Doktor</option>
+                        <option value="belediye_baskani">🏛️ Belediye Başkanı</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>RP Odası Seçin:</label>
+                    <div class="rooms-grid" id="roomsGrid">
+                        <div class="room-card" data-room="polis_merkezi">
+                            <div class="room-icon">🚓</div>
+                            <div class="room-name">Polis Merkezi</div>
+                        </div>
+                        <div class="room-card" data-room="cafe">
+                            <div class="room-icon">☕</div>
+                            <div class="room-name">Cafe</div>
+                        </div>
+                        <div class="room-card" data-room="hastane">
+                            <div class="room-icon">🏥</div>
+                            <div class="room-name">Hastane</div>
+                        </div>
+                        <div class="room-card" data-room="mahalle">
+                            <div class="room-icon">🏘️</div>
+                            <div class="room-name">Mahalle</div>
+                        </div>
+                        <div class="room-card" data-room="hukumet_binasi">
+                            <div class="room-icon">🏛️</div>
+                            <div class="room-name">Hükümet Binası</div>
+                        </div>
+                    </div>
+                    <input type="hidden" id="selectedRoom" name="selectedRoom" required>
+                </div>
+
+                <button type="submit" class="launch-button" id="launchButton">
+                    <i class="fas fa-play"></i>
+                    Giriş Yap
+                </button>
+            </form>
+
+            <div class="loading-overlay" id="loadingOverlay">
+                <div class="loading-content">
+                    <div class="loading-spinner"></div>
+                    <p>Sunucuya bağlanılıyor...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="server-status">
+            <div class="status-item">
+                <span class="status-label">Sunucu Durumu:</span>
+                <span class="status-value" id="serverStatus">Kontrol ediliyor...</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Oyuncu Sayısı:</span>
+                <span class="status-value" id="playerCount">-/-</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
