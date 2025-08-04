@@ -1,0 +1,69 @@
+{
+    "ip": "your-server.com",
+    "port": 25565,
+    "discordUrl": "https://discord.gg/yourserver",
+    "serverName": "RP Sunucusu",
+    "description": "En iyi roleplay deneyimi için katılın!",
+    "offlineMode": true,
+    "maxPlayers": 100,
+    "version": "1.19.4",
+    "features": {
+        "serverQuery": false,
+        "autoLaunch": true,
+        "rememberUser": true
+    },
+    "rooms": {
+        "polis_merkezi": {
+            "name": "Polis Merkezi",
+            "icon": "🚓",
+            "description": "Şehrin güvenliğini sağlayan merkez"
+        },
+        "cafe": {
+            "name": "Cafe",
+            "icon": "☕",
+            "description": "Rahatlamak ve sohbet etmek için ideal"
+        },
+        "hastane": {
+            "name": "Hastane",
+            "icon": "🏥",
+            "description": "Sağlık hizmetlerinin verildiği yer"
+        },
+        "mahalle": {
+            "name": "Mahalle",
+            "icon": "🏘️",
+            "description": "Vatandaşların yaşadığı bölge"
+        },
+        "hukumet_binasi": {
+            "name": "Hükümet Binası",
+            "icon": "🏛️",
+            "description": "Şehir yönetiminin merkezi"
+        }
+    },
+    "characters": {
+        "vatandas": {
+            "name": "Vatandaş",
+            "icon": "👤",
+            "description": "Normal şehir sakini"
+        },
+        "polis": {
+            "name": "Polis",
+            "icon": "👮",
+            "description": "Kanun ve düzeni sağlayan güç"
+        },
+        "mafya": {
+            "name": "Mafya",
+            "icon": "🕴️",
+            "description": "Yeraltı dünyasının üyesi"
+        },
+        "doktor": {
+            "name": "Doktor",
+            "icon": "👨‍⚕️",
+            "description": "Şehrin sağlık hizmetleri uzmanı"
+        },
+        "belediye_baskani": {
+            "name": "Belediye Başkanı",
+            "icon": "🏛️",
+            "description": "Şehrin lideri ve yöneticisi"
+        }
+    }
+}
